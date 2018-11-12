@@ -5,13 +5,14 @@
 <div class="row">
 	<div class ="col-md-12">
 	<br/>
-	<h3 align="center">7D Challenge CRUD</h3>
+	<h3><center><a href="{{url('/phonebook')}}">PHONEBOOK CRUD</a></center></h3>
 	<br/>
 	@if($message = Session::get('success'))
 	<div class="alert alert-success">
-		<p>{{$message}}</p>
+		<p><center>{{$message}}</center></p>
 	</div>
 	@endif
+	<div class="row">
 	<div class="container box">
    <div class="panel panel-default">
     <div class="panel-body">
@@ -36,7 +37,7 @@
 		<tr>
 			<th>Contact Name</th>
 			<th><center>View Contact</th>
-			<th><center>EDIT</th>
+			<th><center>Edit Contact</th>
 			<th><center>Delete Contact</</th>
 		</tr>
 		@foreach($phonebook1 as $row)
@@ -48,14 +49,16 @@
 			<td>
 				<form method="post" class="delete_form" action="{{action('PhonebkController@destroy',$row['id'])}}">
 					{{csrf_field()}}
-				<center><input type="hidden" name="_method" value="DELETE"/>
-				<button type="submit" class="btn btn-danger">DELETE</button>
+				<input type="hidden" name="_method" value="DELETE"/>
+				<center><button type="submit" class="btn btn-danger">DELETE</button></center>
 				</form>
 			</td>
 		</tr>
 		@endforeach
 	</table>
 	</div>
+</div>
+</div>
 </div>
 
 <script>

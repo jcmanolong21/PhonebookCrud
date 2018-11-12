@@ -29,6 +29,6 @@ Route::post('/search', function(){
 			return view('phonebook.output')->withDetails($user)
 		->withQuery($q);
 	}
-	return view('phonebook.output')->withMessage("No Data Found");
+	return view('phonebook.output')->withMessage("No Contacts Found");
 
 });

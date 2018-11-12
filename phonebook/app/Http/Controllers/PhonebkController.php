@@ -46,7 +46,7 @@ class PhonebkController extends Controller
             'contact_number'     =>  $request->get('contact_number')
         ]);
         $student->save();
-        return redirect()->route('phonebook.index')->with('success', 'Contact Added');
+        return redirect()->route('phonebook.index')->with('success', 'Contact Successfully Added');
     }
 
     /**
@@ -58,7 +58,7 @@ class PhonebkController extends Controller
     public function show($id)
     {
         $phonebook = CrudePhnbook::find($id);
-        return view('phonebook.edit', compact('phonebook','id'));
+        return view('phonebook.view', compact('phonebook','id'));
     }
 
     /**
@@ -93,7 +93,7 @@ class PhonebkController extends Controller
         $phonebook->address = $request->get('address');
         $phonebook->contact_number = $request->get('contact_number');
         $phonebook->save();
-        return redirect()->route('phonebook.index')->with('success','Contact Updated');
+        return redirect()->route('phonebook.index')->with('success','Contact Successfully Updated');
     }
 
     /**

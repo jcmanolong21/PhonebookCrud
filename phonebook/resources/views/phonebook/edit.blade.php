@@ -3,21 +3,15 @@
 @section('content')
 
 <div class="row">
-	<div class="col-md-12">
-		<br/>
-		<h3>EDIT CONTACT</h3>
-		<br/>
-		@if(count($errors) > 0)
-
-		<div class="alert alert-danger">
-			<ul>
-				@foreach($errors->all() as $error)
-				<li>{{$error}}</li>
-				@endforeach
-			</ul>
-		</div>
-
-		@endif
+	<div class ="col-md-12">
+	<br/>
+	<h3><center><a href="{{url('/phonebook')}}">PHONEBOOK CRUD</a></center></h3>
+	<br/>
+	<div class="container box">
+   <div class="panel panel-default">
+    <div class="panel-body">
+    <h2>Edit Contact Details</h2>
+	<br/>
 		<form method="post" action="{{action('PhonebkController@update', $id)}}">
 			{{csrf_field()}}
 			<input type="hidden" name="_method" value="PATCH"/>
