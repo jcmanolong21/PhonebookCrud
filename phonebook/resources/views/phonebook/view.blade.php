@@ -12,14 +12,14 @@
 		<p>{{$message}}</p>
 	</div>
 	@endif
-	<div class="container box">
+	<div id="container-box">
    <div class="panel panel-default">
     <div class="panel-body">
     	<form action="/search" method="POST" role="search">
 			{{ csrf_field() }}
 		<div class="input-group">
-		<input type="text" class="form-control" name="q"
-		placeholder="Search in contact.."> <span class="input-group-btn">
+		<b><input type="text" class="form-control" name="q"
+		placeholder="Search in contact.."> </b><span class="input-group-btn">
 		<button type="submit" class="btn btn-default">
 		<span class="glyphicon glyphicon-search"></span>
 	</button>

@@ -7,7 +7,7 @@
 	<br/>
 	<h3><center><a href="{{url('/phonebook')}}">PHONEBOOK CRUD</a></center></h3>
 	<br/>
-	<div class="container box">
+	<div id="container-box">
    <div class="panel panel-default">
     <div class="panel-body">
     <h2>Edit Contact Details</h2>
@@ -28,7 +28,7 @@
 				placeholder="Enter Contact Number"/>
 			</div>
 			<div class="form-group">
-				<input type="submit" class="btn btn-primary" value="Edit"/>
+				<input type="submit" class="btn btn-primary" value="Update"/>
 			</div>
 		</form>
 	</div>

@@ -12,15 +12,16 @@
 		<p><center>{{$message}}</center></p>
 	</div>
 	@endif
+
 	<div class="row">
-	<div class="container box">
+	<div id="container-box">
    <div class="panel panel-default">
     <div class="panel-body">
     	<form action="/search" method="POST" role="search">
 			{{ csrf_field() }}
 		<div class="input-group">
-		<input type="text" class="form-control" name="q"
-		placeholder="Search in contact.."> <span class="input-group-btn">
+		<b><input type="text" class="form-control" name="q"
+		placeholder="Search in contact.."></b><span class="input-group-btn">
 		<button type="submit" class="btn btn-default">
 		<span class="glyphicon glyphicon-search"></span>
 	</button>
@@ -33,9 +34,10 @@
 		<br/>
 		<br/>
 	</div>
-	<table class="table table-striped">
+	
+	<table id ="table-bordered" class="table table-bordered">
 		<tr>
-			<th>Contact Name</th>
+			<th width="40%">Contact Name</th>
 			<th><center>View Contact</th>
 			<th><center>Edit Contact</th>
 			<th><center>Delete Contact</</th>
@@ -56,6 +58,7 @@
 		</tr>
 		@endforeach
 	</table>
+	<center>{{$phonebook1->links()}}</center>
 	</div>
 </div>
 </div>
@@ -75,4 +78,5 @@ $(document).ready(function(){
 
 });
 </script>
+
 @endsection

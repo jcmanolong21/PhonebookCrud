@@ -14,8 +14,10 @@ class PhonebkController extends Controller
     public function index()
     {
         $phonebook1 = CrudePhnbook::all()->toArray();
+        $phonebook1 = CrudePhnbook::orderBy('id','desc')->paginate(5);
         return view('phonebook.index', compact('phonebook1'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -46,7 +48,7 @@ class PhonebkController extends Controller
             'contact_number'     =>  $request->get('contact_number')
         ]);
         $student->save();
-        return redirect()->route('phonebook.index')->with('success', 'Contact Successfully Added');
+        return redirect()->route('phonebook.index')->with('success', 'Contact Added!');
     }
 
     /**
@@ -93,7 +95,7 @@ class PhonebkController extends Controller
         $phonebook->address = $request->get('address');
         $phonebook->contact_number = $request->get('contact_number');
         $phonebook->save();
-        return redirect()->route('phonebook.index')->with('success','Contact Successfully Updated');
+        return redirect()->route('phonebook.index')->with('success','Contact Updated!');
     }
 
     /**
@@ -106,6 +108,6 @@ class PhonebkController extends Controller
     {
         $phonebook = CrudePhnbook::find($id);
         $phonebook->delete();
-        return redirect()->route('phonebook.index')->with('success','Contact Successfully Deleted');
+        return redirect()->route('phonebook.index')->with('success','Contact Deleted!');
     }
 }

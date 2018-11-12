@@ -11,7 +11,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style>
+  #container-box{
+border: 10px solid;
+border-radius: 10px;
+margin-top: 15px;
+margin-bottom: 15px;
+}
+  #table-bordered{
+border: 2px solid;
 
+}
+</style>
 <body>
  
 <div class="container">

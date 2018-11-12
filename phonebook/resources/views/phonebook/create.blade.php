@@ -7,7 +7,7 @@
 	<br/>
 	<h3><center><a href="{{url('/phonebook')}}">PHONEBOOK CRUD</a></center></h3>
 	<br/>
-	<div class="container box">
+	<div id="container-box">
    <div class="panel panel-default">
     <div class="panel-body">
 <div class="row">
