@@ -29,15 +29,14 @@
         <br/>
     </div>
             @if(isset($details))
-        <table class="table table-striped">
-        <thead>
+            <p>Search results for  <b><i> {{ $query }} </i></b> are :</p>
+        <table  class="table table-striped">
             <tr>
             <th width="40%">Contact Name</th>
             <th><center>View Contact</th>
             <th><center>Edit Contact</th>
             <th><center>Delete Contact</</th>
             </tr>
-            </thead>
             <tbody>
             @foreach($details as $user)
             <tr>
@@ -58,7 +57,10 @@
             @endif
             </tbody>
             </table>
-
+            @if(isset($details))
+            {{csrf_field()}}
+            <center>{!! $details->render() !!}</center>
+            @endif
         </body>
         </div>
         </div>

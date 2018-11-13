@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 use App\CrudePhnbook;
+
+
 class PhonebkController extends Controller
 {
     /**
@@ -14,8 +17,9 @@ class PhonebkController extends Controller
     public function index()
     {
         $phonebook1 = CrudePhnbook::all()->toArray();
-        $phonebook1 = CrudePhnbook::orderBy('id','desc')->paginate(5);
-        return view('phonebook.index', compact('phonebook1'));
+        $userCount = CrudePhnbook::count();
+        $phonebook1 = CrudePhnbook::orderBy('id','desc')->paginate(7);
+        return view('phonebook.index', compact('phonebook1'),compact('userCount'));
     }
 
 

@@ -17,6 +17,7 @@
 	<div id="container-box">
    <div class="panel panel-default">
     <div class="panel-body">
+
     	<form action="/search" method="POST" role="search">
 			{{ csrf_field() }}
 		<div class="input-group">
@@ -35,14 +36,19 @@
 		<br/>
 	</div>
 	
-	<table id ="table-bordered" class="table table-bordered">
+	<table class="table table-striped">
 		<tr>
+			@if(isset($userCount))
+			<p>Total No. of Contacts: {{ $userCount }}</p>
+			@endif
+			@foreach($phonebook1 as $row)
 			<th width="40%">Contact Name</th>
 			<th><center>View Contact</th>
 			<th><center>Edit Contact</th>
 			<th><center>Delete Contact</</th>
 		</tr>
-		@foreach($phonebook1 as $row)
+	
+			
 		<tr>
 			<td>{{$row['contact_name']}}<br/><i>
 			{{$row['contact_number']}}</i></td>

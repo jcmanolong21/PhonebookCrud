@@ -19,16 +19,15 @@ Route::get('/', function () {
 });
 Route::resource('phonebook','PhonebkController');
 
-Route::post('/search', function(){
-	$q = Input::get('q');
-	if($q != ''){
-		$user = CrudePhnbook::where('contact_name','LIKE','%' .$q. '%')
-		->orWhere('contact_number','LIKE','%' .$q. '%')
-		->get();
-		if(count($user) > 0)
-			return view('phonebook.output')->withDetails($user)
-		->withQuery($q);
-	}
-	return view('phonebook.output')->withMessage("No Contacts Found");
-
-});
+Route::any( '/search', function () {
+$q = Input::get ( 'q' );
+if($q != ""){
+$user = CrudePhnbook::where ( 'contact_name', 'LIKE', '%' . $q . '%' )->orWhere ( 'contact_number', 'LIKE', '%' . $q . '%' )->paginate (5)->setPath ( '' );
+$pagination = $user->appends ( array (
+'q' => Input::get ( 'q' ) 
+) );
+if (count ( $user ) > 0)
+return view ( 'phonebook.output' )->withDetails ( $user )->withQuery ( $q );
+}
+return view ( 'phonebook.output' )->withMessage ( 'No Contacts found.' );
+} );
